@@ -1,0 +1,13 @@
+dataset/real_vs_fake/
+.venv/
+venv/
+__pycache__/
+*.pyc
+.vscode/
+.idea/
+checkpoints/
+.env
+.pytest_cache/
+CvT/
+outputs/
+models/
