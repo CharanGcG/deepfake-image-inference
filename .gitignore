@@ -10,4 +10,4 @@ checkpoints/
 .pytest_cache/
 CvT/
 outputs/
-models/
+best.pth
