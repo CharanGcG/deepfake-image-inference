@@ -11,3 +11,4 @@ checkpoints/
 CvT/
 outputs/
 best.pth
+node_modules/
