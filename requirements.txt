@@ -25,4 +25,9 @@ pytest
 fastapi
 uvicorn
 opencv-python-headless
-python multipart
+python-multipart
+
+librosa
+pydub
+pillow
+ffmpeg

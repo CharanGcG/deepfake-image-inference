@@ -1,0 +1,75 @@
+. venv\Scripts\Activate.ps1 
+
+uvicorn inference.app:app --reload --host 127.0.0.1 --port 8000
+
+http://127.0.0.1:8000/docs
+
+http://127.0.0.1:8000/ui/
+
+http://localhost:8000/static/index.html
+
+
+
+
+# ✅ Steps to upload an image in Swagger (`/docs`)
+
+1. Open:
+   **[http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)**
+
+2. Scroll down to **POST /infer**
+   You’ll see the Expand arrow ▼ next to it.
+
+3. Click **“Try it out”** (blue button at top-right of the endpoint box)
+
+4. Now a file upload field appears:
+
+   ```
+   file  *  
+   [ Choose File ]
+   ```
+
+5. Click **“Choose File”**
+
+   * Select any `.jpg` or `.png` from your system.
+
+6. Click **“Execute”**
+
+7. Scroll down to see:
+
+   * Response Status (e.g., 200)
+   * Response Body (JSON)
+   * gradcam_url for heatmap
+   * Server Response Headers
+
+Example response:
+
+```json
+{
+  "label": "fake",
+  "score": 0.92314,
+  "gradcam_url": "/static/gradcam_a13fa23b.png"
+}
+```
+
+---
+
+# 📌 How to view the GradCAM heatmap
+
+Click or open the URL returned:
+
+```
+http://127.0.0.1:8000/static/gradcam_xxxxxx.png
+```
+
+Or copy-paste it into a new tab.
+
+---
+
+# ❗ If Swagger shows something like “No file selected”
+
+Make sure:
+
+✔ You clicked **Try it out** first
+✔ You see the file picker input
+✔ You selected a valid image file
+

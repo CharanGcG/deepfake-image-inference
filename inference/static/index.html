@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Unified Inference — Image & Audio</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Explainable Multimodal Deepfake Detection</h1>
+      <p>Upload an image or an audio file and click the corresponding button to run inference.</p>
+    </header>
+
+    <main class="split">
+      <!-- LEFT: IMAGE -->
+      <section class="panel image-panel">
+        <h2>Image Inference</h2>
+        <div class="uploader">
+          <input id="image-file" type="file" accept="image/*">
+          <label for="image-file" class="file-label">Choose image</label>
+          <div id="image-fname" class="fname">No file chosen</div>
+        </div>
+        <button id="image-run" class="run-btn">Run Image Inference</button>
+
+        <div id="image-output" class="output hide">
+          <div class="result-row">
+            <strong>Label:</strong> <span id="image-label"></span>
+            <strong>Score:</strong> <span id="image-score"></span>
+          </div>
+          <div class="gradcam-wrap">
+            <img id="image-gradcam" alt="Grad-CAM" />
+          </div>
+        </div>
+
+        <div id="image-error" class="error hide"></div>
+      </section>
+
+      <!-- RIGHT: AUDIO -->
+      <section class="panel audio-panel">
+        <h2>Audio Inference</h2>
+        <div class="uploader">
+          <input id="audio-file" type="file" accept="audio/*">
+          <label for="audio-file" class="file-label">Choose audio</label>
+          <div id="audio-fname" class="fname">No file chosen</div>
+        </div>
+        <button id="audio-run" class="run-btn">Run Audio Inference</button>
+
+        <div id="audio-output" class="output hide">
+          <div class="result-row">
+            <strong>Label:</strong> <span id="audio-label"></span>
+            <strong>Score:</strong> <span id="audio-score"></span>
+          </div>
+          <div class="gradcam-wrap">
+            <img id="audio-gradcam" alt="Audio Grad-CAM (log-mel overlay)" />
+          </div>
+        </div>
+
+        <div id="audio-error" class="error hide"></div>
+      </section>
+    </main>
+
+    <footer>
+      <small>Endpoints used: <code>/image-infer</code> and <code>/audio-infer</code>. Must be hosted on same origin or allow CORS.</small>
+    </footer>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

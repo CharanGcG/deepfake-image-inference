@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Deepfake Inference — GradCAM</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Deepfake Inference</h1>
+
+    <div class="uploader">
+      <label class="file-drop" id="drop-area">
+        <input type="file" id="file-input" accept="image/*" />
+        <div>
+          <strong>Click to select an image</strong>
+          <p>or drag & drop here</p>
+        </div>
+      </label>
+      <button id="upload-btn" class="btn" disabled>Upload & Analyze</button>
+      <div id="status" class="status">Ready</div>
+    </div>
+
+    <div class="results" id="results" hidden>
+      <div class="panel">
+        <h3>Original Image</h3>
+        <img id="orig-img" src="" alt="original" />
+        <a id="download-orig" class="small-link" download>Download original</a>
+      </div>
+
+      <div class="panel">
+        <h3>Grad-CAM Overlay</h3>
+        <img id="gradcam-img" src="" alt="gradcam" />
+        <a id="download-gradcam" class="btn small" download>Download Grad-CAM</a>
+      </div>
+
+      <div class="panel meta">
+        <h3>Result</h3>
+        <div id="label" class="badge">—</div>
+        <div id="score">Score: —</div>
+      </div>
+    </div>
+
+    <footer>
+      <small>Server: <code id="server-info">http://127.0.0.1:8000</code></small>
+    </footer>
+  </div>
+
+  <script src="./main.js"></script>
+</body>
+</html>
